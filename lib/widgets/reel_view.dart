@@ -78,7 +78,13 @@ class _ReelViewState extends State<ReelView>
                 Row(
                   children: [
                     IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        _pageController.animateToPage(
+                          0,
+                          duration: const Duration(milliseconds: 500),
+                          curve: Curves.easeInOut,
+                        );
+                      },
                       icon: const Icon(
                         Icons.arrow_upward,
                         color: Colors.white,
