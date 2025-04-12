@@ -7,6 +7,8 @@ A Flutter application that plays video reels and displays images in a full-scree
 - Auto-playing video reels
 - Full-screen image display with cropping to fit device dimensions
 - Smooth transitions between posts
+- Animate text whenever each card comes for the first time.
+- The CTAs on the page should change theme on each card
 
 ## Technical Specifications
 
