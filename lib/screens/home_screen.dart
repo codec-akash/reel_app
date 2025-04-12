@@ -1,45 +1,42 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart' as rootBundle;
-import 'package:image_video/model/post.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_video/bloc/post_bloc.dart';
 import 'package:image_video/widgets/reel_view.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
-
-  @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  late List<Post> posts;
-
-  @override
-  void initState() {
-    posts = [];
-    super.initState();
-    WidgetsBinding.instance.addPostFrameCallback((_) async {
-      await loadPosts();
-    });
-  }
-
-  Future<void> loadPosts() async {
-    final String response =
-        await rootBundle.rootBundle.loadString('lib/api_json.json');
-    final List<dynamic> data = json.decode(response);
-    setState(() {
-      posts = data.map((json) => Post.fromJson(json)).toList();
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: posts.isEmpty
-          ? const Center(child: CircularProgressIndicator())
-          : ReelView(posts: posts),
+      body: BlocBuilder<PostBloc, PostState>(
+        builder: (context, state) {
+          if (state is PostInitial) {
+            context.read<PostBloc>().add(LoadPosts());
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (state is PostLoading) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          if (state is PostLoaded) {
+            return ReelView(posts: state.posts);
+          }
+
+          if (state is PostError) {
+            return Center(
+              child: Text(
+                'Error: ${state.message}',
+                style: const TextStyle(color: Colors.white),
+              ),
+            );
+          }
+
+          return const SizedBox.shrink();
+        },
+      ),
     );
   }
 }
