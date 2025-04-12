@@ -1,23 +1,5 @@
 [
   {
-    "id": "1",
-    "title": "Flowers are blooming",
-    "description": "The flowers are blooming in the garden.",
-    "image": "assets/images/flower.jpg"
-  },
-  {
-    "id": "1",
-    "title": "Spring Tree",
-    "description": "The spring tree is blossoming beautifully.",
-    "image": "assets/images/spring_tree.jpg"
-  },
-  {
-    "id": "2",
-    "title": "Spring",
-    "description": "Spring brings new life and vibrant colors.",
-    "image": "assets/images/spring.jpg"
-  },
-  {
     "id": "3",
     "title": "Bird",
     "description": "A bird chirping in the morning light.",
@@ -28,6 +10,24 @@
     "title": "Kenya",
     "description": "Exploring the beautiful landscapes of Kenya.",
     "image": "assets/videos/kenya.mp4"
+  },
+  {
+    "id": "1",
+    "title": "Flowers are blooming",
+    "description": "The flowers are blooming in the garden.",
+    "image": "assets/images/flower.jpg"
+  },
+  {
+    "id": "7",
+    "title": "Spring Tree",
+    "description": "The spring tree is blossoming beautifully.",
+    "image": "assets/images/spring_tree.jpg"
+  },
+  {
+    "id": "2",
+    "title": "Spring",
+    "description": "Spring brings new life and vibrant colors.",
+    "image": "assets/images/spring.jpg"
   },
   {
     "id": "5",

@@ -1,8 +1,9 @@
-import 'package:flutter/material.dart';
 import 'dart:convert';
-import 'package:image_video/model/post.dart';
+
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart' as rootBundle;
-import 'package:image_video/widgets/post_card.dart';
+import 'package:image_video/model/post.dart';
+import 'package:image_video/widgets/reel_view.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,20 +36,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) {
-          if (posts.isEmpty) {
-            return const Center(child: CircularProgressIndicator());
-          }
-          if (index >= posts.length) {
-            return const SizedBox.shrink();
-          }
-          if (posts[index].postUrl == null) {
-            return const SizedBox.shrink();
-          }
-          return PostCard(post: posts[index]);
-        },
-      ),
+      backgroundColor: Colors.black,
+      body: posts.isEmpty
+          ? const Center(child: CircularProgressIndicator())
+          : ReelView(posts: posts),
     );
   }
 }
