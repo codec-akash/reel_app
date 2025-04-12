@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:image_video/model/post.dart';
 import 'package:image_video/widgets/custom_action_button.dart';
 import 'package:image_video/widgets/icon_text_button.dart';
@@ -79,6 +80,23 @@ class _ReelViewState extends State<ReelView> {
                   const SizedBox(width: 5),
                 ],
               ),
+              const SizedBox(height: 30),
+              Text(
+                widget.posts[_currentPage].title ?? "",
+                style: Theme.of(context)
+                    .textTheme
+                    .titleLarge
+                    ?.copyWith(color: Colors.white),
+              ),
+              const SizedBox(height: 20),
+              Text(
+                widget.posts[_currentPage].description ?? "",
+                textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.headlineLarge!.copyWith(
+                    fontFamily: GoogleFonts.bodoniModa().fontFamily,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white),
+              ),
               const Spacer(),
               const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -92,7 +110,8 @@ class _ReelViewState extends State<ReelView> {
                     icon: Icons.share,
                   ),
                 ],
-              )
+              ),
+              const SizedBox(height: 20),
             ],
           )),
         ),

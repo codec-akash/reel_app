@@ -86,16 +86,20 @@ class _PostCardState extends State<PostCard> {
       if (_controller == null || !_controller!.value.isInitialized) {
         return const Center(child: CircularProgressIndicator());
       }
-      return Center(
-        child: AspectRatio(
-          aspectRatio: _controller!.value.aspectRatio,
-          child: VideoPlayer(_controller!),
+      return SizedBox.expand(
+        child: FittedBox(
+          fit: BoxFit.cover,
+          child: SizedBox(
+            width: _controller!.value.size.width,
+            height: _controller!.value.size.height,
+            child: VideoPlayer(_controller!),
+          ),
         ),
       );
     } else {
       return Image.asset(
         widget.post.postUrl!,
-        fit: BoxFit.contain,
+        fit: BoxFit.cover,
       );
     }
   }
