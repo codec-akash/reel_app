@@ -1,16 +1,35 @@
-# image_video
+# Image Video Player
 
-A new Flutter project.
+A Flutter application that plays video reels and displays images in a full-screen format.
+
+## Features
+
+- Auto-playing video reels
+- Full-screen image display with cropping to fit device dimensions
+- Smooth transitions between posts
+
+## Technical Specifications
+
+- Flutter Version: 3.24.5 (stable channel)
+- Dart Version: 3.24.5
+
+## Assets Required
+
+Place the following in the `assets` directory:
+- Images (.jpg, .jpeg, .png)
+- Videos (.mp4)
+
+## Fonts
+
+The app uses the following Google Fonts:
+- poppinsTextTheme
+- Bodoni Moda
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+1. Clone the repository
+2. Install dependencies:
+```bash
+flutter pub get
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+flutter build apk
